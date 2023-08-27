@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 200 20% 98%;
+    --btn-background: 200 10% 91%;
+    --btn-background-hover: 200 10% 89%;
+    --foreground: 200 50% 3%;
+    --primary: 21 90% 48%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 200 50% 3%;
+      --btn-background: 200 10% 9%;
+      --btn-background-hover: 200 10% 12%;
+      --foreground: 200 20% 96%;
+      --primary: 21 90% 48%;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-foreground/20;
+  }
+
+  a {
+    @apply text-primary;
+  }
+
+  input:not([type='checkbox']):not([type='radio']),
+  textarea {
+    @apply bg-btn-background px-3 py-2 outline-none mt-1 block w-full rounded-md border-foreground/20 border ring-2 appearance-none ring-transparent shadow-sm focus:border-transparent focus:ring-blue-400 sm:text-sm transition hover:transition;
+  }
+
+  @media only screen and (max-width: 640px) {
+    input {
+      @apply !text-sm;
+    }
+  }
+}
+
+.animate-in {
+  animation: animateIn 0.3s ease 0.15s both;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

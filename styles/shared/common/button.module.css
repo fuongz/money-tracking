@@ -1,0 +1,11 @@
+.button {
+  @apply py-2 px-4 rounded-md no-underline flex items-center text-sm transition;
+}
+
+.button:hover {
+  @apply transition;
+}
+
+.button:disabled {
+  @apply cursor-not-allowed bg-opacity-30;
+}

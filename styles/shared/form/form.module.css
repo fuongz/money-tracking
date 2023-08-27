@@ -1,0 +1,79 @@
+.input-control {
+  @apply mb-4 relative;
+}
+
+.input-control.is-error input:not([type='checkbox']):not([type='radio']) {
+  @apply border-red-500 text-red-500;
+}
+
+.input-control label,
+.input-label {
+  @apply block text-sm font-medium text-gray-700 mb-1.5;
+}
+
+.input-control input:not([type='checkbox']):not([type='radio']) {
+  @apply block w-full border;
+}
+
+.input-control .input-helper {
+  @apply text-xs mt-1;
+}
+
+.input-mask {
+  @apply absolute right-0 pr-2 text-gray-400 text-sm;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-radio {
+  @apply relative flex items-center cursor-pointer gap-2 my-2;
+}
+
+.input-radio label {
+  @apply font-medium cursor-pointer;
+}
+
+.has-error {
+  @apply text-red-500 text-sm mt-1.5 block;
+}
+
+.form-control {
+  @apply relative mb-4;
+}
+
+.form-control--text {
+}
+
+.form-input--radio label {
+  @apply !font-medium !text-zinc-700 !flex !gap-1.5;
+}
+
+.form-control label {
+  @apply block text-sm font-medium text-gray-700 mb-1.5;
+}
+
+.form-control__input--has-suffix {
+  @apply relative;
+}
+
+.form-control__input--has-suffix input {
+  @apply !pr-20;
+}
+
+.label--is-required {
+  @apply text-red-500 ml-1 inline-block;
+}
+
+.input--has-error {
+  @apply text-red-500 text-sm mt-1.5 block;
+}
+
+.form-control--has-error > input {
+  @apply !ring-red-500 !border-transparent;
+}
+
+@media only screen and (max-width: 640px) {
+  .form-control input {
+    @apply !text-sm;
+  }
+}
