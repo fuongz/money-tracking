@@ -7,9 +7,9 @@ interface MessageComponentProps {
 }
 
 const typeClasses = {
-  error: 'text-white bg-red-900',
+  error: 'text-red-600 bg-red-100',
   info: 'text-white',
-  success: 'text-green-500',
+  success: 'text-green-600 bg-green-100',
 }
 
 export default function Message({ children, type, className }: MessageComponentProps) {

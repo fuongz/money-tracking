@@ -2,6 +2,7 @@ import { Toaster } from 'react-hot-toast'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import Navigation from '@/components/shared/layout/Navigation'
 
 export const metadata = {
   title: 'Money Tracker - PhakeApp',
@@ -19,7 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             className: 'text-sm',
           }}
         />
-        <main className="min-h-screen bg-background flex flex-col items-center text-white">{children}</main>
+        <Navigation />
+        <main>{children}</main>
         <Analytics />
       </body>
     </html>

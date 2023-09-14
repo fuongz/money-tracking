@@ -4,6 +4,7 @@ import styles from '@/styles/shared/form/form.module.css'
 
 import { useFormContext } from 'react-hook-form'
 import { randomString } from '@/utils/string.utils'
+import { Input } from '@/components/ui/input'
 
 interface FormInputComponentProps {
   type?: string
@@ -27,7 +28,7 @@ const CommonInput = ({ type, autoComplete, name, ...rest }: FormInputComponentPr
   const { register } = useFormContext()
   return (
     <>
-      <input autoComplete={autoComplete} {...register(name)} type={type || 'text'} {...rest} />
+      <Input autoComplete={autoComplete} {...register(name)} type={type || 'text'} {...rest} />
     </>
   )
 }
@@ -36,7 +37,7 @@ const InputElement = (props: FormInputComponentProps) => {
   return <CommonInput {...props} />
 }
 
-export const Input = (props: FormInputComponentProps) => {
+export const FormInput = (props: FormInputComponentProps) => {
   const {
     formState: { errors },
   } = useFormContext()

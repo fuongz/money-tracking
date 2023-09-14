@@ -5,14 +5,14 @@ import { USignInSchemaType, schema } from './schema'
 import { useForm, FormProvider } from 'react-hook-form'
 
 import Container from '@/components/shared/layout/Container'
-import { Input } from '@/components/shared/form/Form'
-import Button from '@/components/shared/common/Button'
+import { FormInput } from '@/components/shared/form/Form'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import Message from '@/components/shared/common/Message'
 import { useState } from 'react'
 import Link from 'next/link'
+import PhakeButton from '@/components/shared/common/Button'
 
 interface USignInRoute {}
 
@@ -39,7 +39,7 @@ export default function USignInRoute({}: USignInRoute) {
       }
       setFormError('')
       toast.success('Sign in success')
-      router.push('/')
+      router.refresh()
     } catch (err: any) {
       setFormError(err.message)
     }
@@ -48,7 +48,7 @@ export default function USignInRoute({}: USignInRoute) {
     <Container>
       <div className="h-screen flex justify-center items-center">
         <div className="w-[300px] animate-in">
-          <Link href="/" className="mb-4 text-sm text-orange-600 inline-block">
+          <Link href="/" className="mb-4 text-sm text-neutral-900 inline-block">
             Back to Home
           </Link>
 
@@ -60,13 +60,16 @@ export default function USignInRoute({}: USignInRoute) {
           <h3 className="text-lg font-medium">Sign In</h3>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(handleSignin)}>
-              <Input type="text" name="email" id="email" placeholder="Enter your email" />
-              <Input type="password" name="password" id="password" placeholder="Enter your password" />
-              <Button block type="submit" variant="primary" busy={methods.formState?.isSubmitting}>
+              <FormInput type="text" name="email" id="email" placeholder="Enter your email" />
+              <FormInput type="password" name="password" id="password" placeholder="Enter your password" />
+              <PhakeButton block type="submit" busy={methods.formState?.isSubmitting}>
                 Sign in
-              </Button>
-              <p className="text-sm mt-2 text-foreground">
-                Don't have an account? <Link href="/u/signup">Signup</Link>
+              </PhakeButton>
+              <p className="text-sm mt-2 text-neutral-500">
+                Don't have an account?{' '}
+                <Link href="/u/signup" className="text-neutral-900 underline">
+                  Sign up
+                </Link>
               </p>
             </form>
           </FormProvider>

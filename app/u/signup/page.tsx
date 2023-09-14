@@ -5,7 +5,7 @@ import { USignUpSchemaType, schema } from './schema'
 import { useForm, FormProvider } from 'react-hook-form'
 
 import Container from '@/components/shared/layout/Container'
-import { Input } from '@/components/shared/form/Form'
+import { FormInput } from '@/components/shared/form/Form'
 import Button from '@/components/shared/common/Button'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
@@ -51,7 +51,7 @@ export default function USignInRoute({}: USignUpRoute) {
     <Container>
       <div className="h-screen flex justify-center items-center">
         <div className="w-[300px] animate-in">
-          <Link href="/" className="mb-4 text-sm text-orange-600 inline-block">
+          <Link href="/" className="mb-4 text-sm text-neutral-900 inline-block">
             Back to Home
           </Link>
 
@@ -63,14 +63,17 @@ export default function USignInRoute({}: USignUpRoute) {
           <h3 className="text-lg font-medium">Sign Up</h3>
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(handleSignup)}>
-              <Input type="text" name="email" id="email" placeholder="Enter your email" />
-              <Input type="password" name="password" id="password" placeholder="Enter your password" />
-              <Input type="password" name="password_confirmation" id="password_confirmation" placeholder="Enter your password" />
+              <FormInput type="text" name="email" id="email" placeholder="Enter your email" />
+              <FormInput type="password" name="password" id="password" placeholder="Enter your password" />
+              <FormInput type="password" name="password_confirmation" id="password_confirmation" placeholder="Enter your password" />
               <Button block type="submit" variant="primary" busy={methods.formState?.isSubmitting}>
                 Sign up
               </Button>
-              <p className="text-sm mt-2 text-foreground">
-                Already have an account? <Link href="/u/signin">Signin</Link>
+              <p className="text-sm mt-2 text-neutral-500">
+                Already have an account?{' '}
+                <Link href="/u/signin" className="text-neutral-900 underline">
+                  Sign in
+                </Link>
               </p>
             </form>
           </FormProvider>
